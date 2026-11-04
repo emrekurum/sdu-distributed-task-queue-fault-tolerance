@@ -1,0 +1,16 @@
+\begin{tikzpicture}[>=Stealth,font=\scriptsize,
+  nodebox/.style={draw=black!60,rounded corners=2pt,align=center,minimum height=8mm,fill=black!3},
+  fault/.style={nodebox,fill=red!10,draw=red!70},
+  live/.style={nodebox,fill=green!8,draw=green!55!black}]
+\node[nodebox,minimum width=18mm] (api) at (0,0) {API\\üretici};
+\node[nodebox,minimum width=18mm] (redis) at (3.0,0) {Redis\\broker};
+\node[fault,minimum width=19mm] (wa) at (6.1,.80) {Worker A\\kapatılır};
+\node[live,minimum width=19mm] (wb) at (6.1,-.80) {Worker B\\çalışır};
+\node[nodebox,minimum width=23mm] (pg) at (9.1,0) {PostgreSQL\\kalıcı kayıt};
+\draw[->] (api) -- node[above]{görev} (redis);
+\draw[->] (redis.east) -- (wa.west);
+\draw[->] (redis.east) -- node[below,sloped]{görev devri?} (wb.west);
+\draw[->] (wa.east) -- (pg.west);
+\draw[->] (wb.east) -- (pg.west);
+\draw[red!70,thick] (6.10,1.32)--(6.10,1.60) node[above,black]{\scriptsize arıza};
+\end{tikzpicture}

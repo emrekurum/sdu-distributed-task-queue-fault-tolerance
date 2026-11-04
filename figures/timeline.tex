@@ -1,0 +1,13 @@
+\begin{tikzpicture}[>=Stealth, font=\scriptsize, x=0.95cm,y=.65cm]
+\draw[->] (0,0) -- (8.8,0) node[right]{zaman};
+\foreach \x/\label in {0.8/{görev al},2.6/{DB yaz},4.4/{commit},7.6/{ACK}}{
+ \draw (\x,.12)--(\x,-.12);
+ \node[align=center,below] at (\x,-.12) {\label};
+}
+\fill[red!13] (4.55,.25) rectangle (7.5,.95);
+\node[align=center,red!65!black] at (6.0,.62) {hedef arıza\\penceresi};
+\draw[red!70,thick] (5.70,0)--(5.70,1.12);
+\node[above] at (5.70,1.12){worker durur};
+\draw[->,dashed] (7.7,1.30) to[bend left=18] (8.55,1.15);
+\node[above,align=center] at (8.15,1.33) {yeniden\\teslim?};
+\end{tikzpicture}
