@@ -24,4 +24,3 @@ xelatex main.tex
 xelatex main.tex
 ```
 
-Resmî IEEEtran şablonuna dayalı olarak derlenmiştir. Bu depo, ders platformundaki asıl teslimin yerine geçmez; teslim bağlantısı ve gerekli kontroller dersin yönergesine göre yapılmalıdır.
